@@ -23,8 +23,10 @@ const Header = () => {
   const [searchPlaceholder, setSerchPlaceholder] = useState("");
   const [isSearchFocus, setIsSearchFocus] = useState(false);
   const [input, setInput] = useState("");
+  const [isHanburgerOpen, setIsHanburgerOpen] = useState(false);
 
   const inputRef = useRef<HTMLDivElement>(null);
+  const hambergerRef = useRef<HTMLButtonElement>(null);
 
   // ZUSTAND
   const addSearchHistory = useSearchHistory((state) => state.addSearchHistory);
@@ -44,6 +46,19 @@ const Header = () => {
     window.addEventListener("mousedown", handleClick);
     return () => window.removeEventListener("mousedown", handleClick);
   }, [inputRef]);
+
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      if (
+        hambergerRef.current &&
+        !hambergerRef.current.contains(e.target as Node)
+      ) {
+        setIsHanburgerOpen(false);
+      }
+    };
+    window.addEventListener("mouseup", handleClick);
+    return () => window.removeEventListener("mouseup", handleClick);
+  }, [hambergerRef]);
 
   const onFocusHandler = () => {
     setSerchPlaceholder("검색어를 입력해 주세요.");
@@ -83,11 +98,49 @@ const Header = () => {
     }
   };
 
+  const handleHamburger = () => {
+    setIsHanburgerOpen(true);
+  };
+
   return (
     <header className={cx("header-wrap")}>
       <div className={cx("top-button-area")}>
-        <button className={cx("menu-button")}>
+        <button
+          className={cx("menu-button")}
+          onClick={handleHamburger}
+          ref={hambergerRef}
+        >
           <CiMenuBurger />
+          {isHanburgerOpen && (
+            <div className={cx("hambuger-modal")}>
+              <div
+                style={{
+                  position: "sticky",
+                  top: 0,
+                  backgroundColor: "#fff",
+                  fontSize: "25px",
+                  textAlign: "start",
+                  padding: "20px",
+                  borderBottom: "1px solid rgba(0,0,0,0.1)",
+                }}
+              >
+                바로가기
+              </div>
+              <div className={cx("hamburger-content-wrap")}>
+                <div>section2</div>
+                <div>section3</div>
+                <div>section3</div>
+                <div>section3</div>
+                <div>section3</div>
+                <div>section3</div>
+                <div>section3</div>
+                <div>section3</div>
+                <div>section3</div>
+                <div>section3</div>
+                <div>section3</div>
+              </div>
+            </div>
+          )}
         </button>
         <button className={cx("pay-button")}>
           <FaAmazonPay />
