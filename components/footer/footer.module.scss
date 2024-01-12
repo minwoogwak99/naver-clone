@@ -1,0 +1,41 @@
+@import "../main/main.module.scss";
+
+.footer-wrap {
+  margin: 20px 10%;
+  border: 1px solid red;
+  gap: 20px;
+
+  .section-1 {
+    height: 161px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    div {
+      @include flex-center-and-background(rgba(0, 0, 0, 0));
+      height: 100px;
+      width: 310px;
+      border-radius: 10px;
+      gap: 10px;
+      div {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+  .section-2 {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .section-3 {
+    @include flex-center-and-background(rgba(0, 0, 0, 0.1));
+
+    height: 120px;
+  }
+  .section-4 {
+    @include flex-center-and-background(rgba(0, 0, 0, 0.1));
+
+    height: 40px;
+  }
+}

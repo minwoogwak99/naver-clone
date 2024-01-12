@@ -1,0 +1,79 @@
+@mixin flex-center-and-background($color) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $color;
+  border-radius: 10px;
+}
+.main-wrap {
+  display: flex;
+  margin: 0 10%;
+  gap: 20px;
+
+  .section-left-wrap {
+    flex-basis: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    .left-section1 {
+      @include flex-center-and-background(rgba(0, 0, 0, 0.1));
+      width: 100%;
+      height: 130px;
+    }
+    .left-section2 {
+      @include flex-center-and-background(rgba(0, 0, 0, 0.1));
+      width: 100%;
+      height: 426px;
+    }
+    .left-section3 {
+      @include flex-center-and-background(rgba(0, 0, 0, 0.1));
+      width: 100%;
+      height: 560px;
+    }
+    .left-section4 {
+      @include flex-center-and-background(rgba(0, 0, 0, 0.1));
+      width: 100%;
+      height: 820px;
+    }
+  }
+
+  .section-right-wrap {
+    flex-basis: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    .right-section1 {
+      @include flex-center-and-background(rgba(0, 0, 0, 0.1));
+      width: 100%;
+      height: 164px;
+    }
+    .right-section2 {
+      @include flex-center-and-background(rgba(0, 0, 0, 0.1));
+      width: 100%;
+      height: 240px;
+    }
+    .right-section3 {
+      @include flex-center-and-background(rgba(0, 0, 0, 0.1));
+      width: 100%;
+      height: 236px;
+    }
+    .right-section4 {
+      @include flex-center-and-background(rgba(0, 0, 0, 0.1));
+      width: 100%;
+      height: 236px;
+    }
+    .right-section5 {
+      @include flex-center-and-background(rgba(0, 0, 0, 0.1));
+      width: 100%;
+      height: 1010px;
+    }
+    .right-section6 {
+      @include flex-center-and-background(rgba(0, 0, 0, 0.1));
+      width: 100%;
+      height: 80px;
+    }
+  }
+}
