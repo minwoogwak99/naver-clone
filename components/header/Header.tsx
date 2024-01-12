@@ -65,7 +65,7 @@ const Header = () => {
   };
 
   const gotoSearchPage = () => {
-    addSearchHistory(input);
+    if (autoSave) addSearchHistory(input);
     router.push(`https://search.naver.com/search.naver?query=${input}`);
     setInput("");
   };
