@@ -19,8 +19,9 @@ export default function RootLayout({
       <body
         style={{
           display: "flex",
-          justifyContent: "center",
-          width: "100vw",
+          maxWidth: "90%",
+          margin: "0 auto",
+          minWidth: "1200px", // Set a minimum width for the body
         }}
         className={inter.className}
       >
