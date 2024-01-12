@@ -73,7 +73,7 @@
     align-items: center;
     height: 58px;
     border: 1px solid rgb(89, 196, 102);
-    min-width: 40vw;
+    min-width: 60vw;
     border-radius: 30px;
     align-self: center;
   }
@@ -84,7 +84,7 @@
     justify-content: center;
     align-items: center;
     height: 58px;
-    min-width: 40vw;
+    min-width: 100vw;
     border: 1px solid rgba(255, 255, 255, 0);
   }
   .search-history-wrap-empty {
@@ -92,7 +92,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-width: 40vw;
+    min-width: 100vw;
     min-height: 158px;
     border-top: 1px solid rgba(96, 96, 96, 0.113);
   }
@@ -102,7 +102,7 @@
     flex-direction: column;
     align-items: center;
     // justify-content: center;
-    min-width: 40vw;
+    min-width: 100vw;
     min-height: 50px;
     border-top: 1px solid rgba(96, 96, 96, 0.113);
 
