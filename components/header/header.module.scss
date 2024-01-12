@@ -1,3 +1,37 @@
+@mixin default-search-area {
+  .search-area-img {
+    cursor: pointer;
+    height: 100%;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 20px;
+  }
+
+  .search-area-input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: transparent;
+    font-size: 20px;
+    margin-left: 10px;
+    outline: none;
+    font-weight: bold;
+  }
+  .search-area-input::placeholder {
+    color: rgba(0, 0, 0, 0.141);
+    font-weight: normal;
+  }
+
+  .search-button {
+    font-size: 30px;
+    color: rgb(89, 196, 102);
+    cursor: pointer;
+    padding-right: 30px;
+  }
+}
+
 .header-wrap {
   display: flex;
   flex-direction: column;
@@ -22,39 +56,6 @@
     }
   }
 
-  @mixin default-search-area {
-    .search-area-img {
-      cursor: pointer;
-      height: 100%;
-      border-radius: 30px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding-left: 20px;
-    }
-
-    .search-area-input {
-      width: 100%;
-      height: 100%;
-      border: none;
-      background-color: transparent;
-      font-size: 20px;
-      margin-left: 10px;
-      outline: none;
-      font-weight: bold;
-    }
-    .search-area-input::placeholder {
-      color: rgba(0, 0, 0, 0.141);
-      font-weight: normal;
-    }
-
-    .search-button {
-      font-size: 30px;
-      color: rgb(89, 196, 102);
-      cursor: pointer;
-      padding-right: 30px;
-    }
-  }
   .search-area-wrap {
     position: absolute;
     z-index: 99;
@@ -72,7 +73,7 @@
     align-items: center;
     height: 58px;
     border: 1px solid rgb(89, 196, 102);
-    width: 40vw;
+    min-width: 40vw;
     border-radius: 30px;
     align-self: center;
   }
@@ -83,7 +84,7 @@
     justify-content: center;
     align-items: center;
     height: 58px;
-    width: 40vw;
+    min-width: 40vw;
     border: 1px solid rgba(255, 255, 255, 0);
   }
   .search-history-wrap-empty {
@@ -91,7 +92,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 40vw;
+    min-width: 40vw;
     min-height: 158px;
     border-top: 1px solid rgba(96, 96, 96, 0.113);
   }
@@ -101,7 +102,7 @@
     flex-direction: column;
     align-items: center;
     // justify-content: center;
-    width: 40vw;
+    min-width: 40vw;
     min-height: 50px;
     border-top: 1px solid rgba(96, 96, 96, 0.113);
 
@@ -131,7 +132,7 @@
     display: flex;
     align-items: center;
     // justify-content: center;
-    width: 40vw;
+    min-width: 40vw;
     border-top: 1px solid rgba(96, 96, 96, 0.113);
 
     span {

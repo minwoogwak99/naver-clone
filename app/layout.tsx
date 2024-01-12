@@ -16,7 +16,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <body className={inter.className}>{children}</body>
+      <body
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+        className={inter.className}
+      >
+        {children}
+      </body>
     </html>
   );
 }

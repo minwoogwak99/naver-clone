@@ -4,10 +4,10 @@ import Main from "@/components/main/Main";
 
 export default function Home() {
   return (
-    <>
+    <div>
       <Header />
       <Main />
       <Footer />
-    </>
+    </div>
   );
 }
