@@ -19,8 +19,8 @@ export default function RootLayout({
       <body
         style={{
           display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
+          justifyContent: "center",
+          width: "100vw",
         }}
         className={inter.className}
       >
