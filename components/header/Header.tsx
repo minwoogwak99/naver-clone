@@ -38,6 +38,7 @@ const Header = () => {
     const handleClick = (e: MouseEvent) => {
       if (inputRef.current && !inputRef.current.contains(e.target as Node)) {
         setIsSearchFocus(false);
+        setSerchPlaceholder("");
       }
     };
     window.addEventListener("mousedown", handleClick);
