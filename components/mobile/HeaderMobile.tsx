@@ -25,14 +25,8 @@ const HeaderMobile = () => {
   // ZUSTAND
   const addSearchHistory = useSearchHistory((state) => state.addSearchHistory);
   const deleteAllHistory = useSearchHistory((state) => state.deleteAllHistory);
-  const deleteOneHistory = useSearchHistory((state) => state.deleteOneHistory);
   const setAutoSave = useSearchHistory((state) => state.setAutoSave);
-  const searchHistories = useSearchHistory((state) => state.searchHistories);
   const autoSave = useSearchHistory((state) => state.autoSave);
-
-  const handleSearchInputChange = () => {
-    setInput(inputRef.current?.value!);
-  };
 
   const handleSearch = (e: React.MouseEvent<SVGSVGElement, MouseEvent>) => {
     e.preventDefault();

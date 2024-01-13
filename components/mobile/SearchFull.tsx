@@ -136,6 +136,7 @@ const SearchFull = ({ setIsShowSearchFull }: Props) => {
                       <div
                         className={cx("history-item")}
                         style={{ height: "40px" }}
+                        key={i}
                       >
                         <SlMagnifier />
                         <span
