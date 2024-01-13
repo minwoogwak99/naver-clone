@@ -16,6 +16,7 @@ import { useRouter } from "next/navigation";
 import { useSearchHistory } from "@/util/zustand/store";
 import { IoMdClose } from "react-icons/io";
 import OtherServices from "./otherServices/OtherServices";
+import Link from "next/link";
 
 const Header = () => {
   const router = useRouter();
@@ -152,6 +153,25 @@ const Header = () => {
         <button className={cx("alarm-button")}>
           <LuBadgeInfo />
         </button>
+        <Link
+          href="/mobile"
+          style={{
+            position: "sticky",
+            bottom: 0,
+            right: 0,
+            height: "40px",
+            width: "60px",
+            borderRadius: "10px",
+            backgroundColor: "green",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            textDecoration: "none",
+            color: "white",
+          }}
+        >
+          모바일
+        </Link>
       </div>
 
       <div className={cx({ "search-area-wrap": isSearchFocus })} ref={inputRef}>
