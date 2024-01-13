@@ -2,7 +2,7 @@ import classNames from "classnames/bind";
 import styles from "./headerMobile.module.scss";
 const cx = classNames.bind(styles);
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { CiMenuBurger } from "react-icons/ci";
 import { FaAmazonPay } from "react-icons/fa";
 import { MdOutlineMessage } from "react-icons/md";
@@ -17,7 +17,6 @@ import SearchFull from "./SearchFull";
 const HeaderMobile = () => {
   const router = useRouter();
 
-  const [isSearchFocus, setIsSearchFocus] = useState(false);
   const [input, setInput] = useState("");
   const [isShowSearchFull, setIsShowSearchFull] = useState(false);
 
@@ -30,10 +29,6 @@ const HeaderMobile = () => {
   const setAutoSave = useSearchHistory((state) => state.setAutoSave);
   const searchHistories = useSearchHistory((state) => state.searchHistories);
   const autoSave = useSearchHistory((state) => state.autoSave);
-
-  const onFocusHandler = () => {
-    setIsSearchFocus(true);
-  };
 
   const handleSearchInputChange = () => {
     setInput(inputRef.current?.value!);
