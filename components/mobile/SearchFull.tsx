@@ -52,7 +52,7 @@ const SearchFull = ({ setIsShowSearchFull }: Props) => {
   const handleAutoSave = () => {
     if (autoSave && confirm("최근검색어 저장 기능을 사용 중지하시겠습니까?")) {
       setAutoSave(false);
-      deleteAllHistory();
+      // deleteAllHistory();
     } else if (
       !autoSave &&
       confirm("최근검색어 저장 기능을 사용 하시겠습니까?")
@@ -78,7 +78,11 @@ const SearchFull = ({ setIsShowSearchFull }: Props) => {
           }}
         >
           <IoMdArrowBack
-            style={{ verticalAlign: "middle", fontSize: "20px" }}
+            style={{
+              verticalAlign: "middle",
+              fontSize: "20px",
+              cursor: "pointer",
+            }}
           />
         </button>
         <input
@@ -95,61 +99,75 @@ const SearchFull = ({ setIsShowSearchFull }: Props) => {
         <SlMagnifier className={cx("search-button")} onClick={handleSearch} />
       </div>
       <div className={cx("search-history-wrap")}>
-        {isHistoryEmpty && (
+        {!autoSave && (
           <div className={cx("search-history-empty-wrap")}>
-            <div>
-              {autoSave
-                ? "최근 검색어 내역이 없습니다"
-                : "검색어 저장 기능이 꺼져 있습니다."}
-            </div>
+            <div>검색어 저장 기능이 꺼져 있습니다.</div>
             <div style={{ fontSize: "14px", color: "rgba(0,0,0,0.4)" }}>
               설정이 초기화된다면 도움말을 확인해주세요
             </div>
           </div>
         )}
         <div className={cx("search-history-area")}>
-          {!isHistoryEmpty && autoSave && (
+          {autoSave && (
             <>
-              <div
-                style={{ display: "flex", height: "25px", fontSize: "15px" }}
-              >
-                <span>최근 검색어</span>
-                <span style={{ flex: 1 }} />
-                <span onClick={() => deleteAllHistory()}>전체삭제</span>
-              </div>
-              {searchHistories.map((history, i) => {
-                return (
-                  <div
-                    className={cx("history-item")}
-                    style={{ height: "40px" }}
-                  >
-                    <SlMagnifier />
-                    <span
-                      className={cx("history-item-text")}
-                      onClick={() => {
-                        router.push(
-                          "https://search.naver.com/search.naver?query=" +
-                            history.keyword
-                        );
-                      }}
-                    >
-                      {history.keyword}
-                    </span>
-                    <span style={{ flex: 1 }} />
-                    <IoMdClose onClick={() => deleteOneHistory(i)} />
+              {isHistoryEmpty && (
+                <div className={cx("search-history-empty-wrap")}>
+                  <div>검색 기록이 없습니다.</div>
+                  <div style={{ fontSize: "14px", color: "rgba(0,0,0,0.4)" }}>
+                    설정이 초기화된다면 도움말을 확인해주세요
                   </div>
-                );
-              })}
+                </div>
+              )}
+              {!isHistoryEmpty && (
+                <>
+                  <div
+                    style={{
+                      display: "flex",
+                      height: "25px",
+                      fontSize: "15px",
+                    }}
+                  >
+                    <span>최근 검색어</span>
+                    <span style={{ flex: 1 }} />
+                    <span onClick={() => deleteAllHistory()}>전체삭제</span>
+                  </div>
+                  {searchHistories.map((history, i) => {
+                    return (
+                      <div
+                        className={cx("history-item")}
+                        style={{ height: "40px" }}
+                      >
+                        <SlMagnifier />
+                        <span
+                          className={cx("history-item-text")}
+                          onClick={() => {
+                            router.push(
+                              "https://search.naver.com/search.naver?query=" +
+                                history.keyword
+                            );
+                          }}
+                        >
+                          {history.keyword}
+                        </span>
+                        <span style={{ flex: 1 }} />
+                        <IoMdClose onClick={() => deleteOneHistory(i)} />
+                      </div>
+                    );
+                  })}
+                </>
+              )}
             </>
           )}
+          {}
         </div>
         <div className={cx("button-area")}>
-          <span onClick={handleAutoSave}>
+          <span onClick={handleAutoSave} style={{ cursor: "pointer" }}>
             {autoSave ? "자동저장 끄기" : "자동저장 켜기"}
           </span>
           <span>도움말</span>
           <span style={{ flex: 1 }} />
           <span
+            style={{ cursor: "pointer" }}
             onClick={() => {
               setIsShowSearchFull(false);
             }}

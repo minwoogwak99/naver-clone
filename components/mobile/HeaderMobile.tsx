@@ -58,7 +58,7 @@ const HeaderMobile = () => {
   };
 
   return (
-    <div>
+    <div className={cx("header-mobile-wrap")}>
       <div className={cx("top-button-area")}>
         <CiMenuBurger />
         <FaAmazonPay />
@@ -81,6 +81,7 @@ const HeaderMobile = () => {
             className={cx("search-area-input")}
             placeholder="검색어를 입력하세요"
             value={""}
+            readOnly
           />
           <SlMagnifier className={cx("search-button")} onClick={handleSearch} />
         </div>
