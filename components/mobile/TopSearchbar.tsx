@@ -30,7 +30,11 @@ const TopSearchbar = () => {
         </div>
         <div className={cx("services-wrap")}>
           {Object.keys(services).map((service, i) => {
-            return <div key={i}>{service}</div>;
+            return (
+              <div key={i} className={cx("service-item")}>
+                {service}
+              </div>
+            );
           })}
         </div>
       </div>

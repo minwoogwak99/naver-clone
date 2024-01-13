@@ -33,10 +33,15 @@
     height: 55px;
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 18px;
     font-size: 18px;
     font-weight: 600;
     color: #fff;
     padding-left: 20px;
+    overflow-y: scroll;
+
+    .service-item {
+      min-width: 50px;
+    }
   }
 }
