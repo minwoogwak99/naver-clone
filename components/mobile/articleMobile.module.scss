@@ -1,0 +1,17 @@
+.article-wrap {
+  .article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 380px;
+    border: 1px solid green;
+    margin: 10px;
+
+    .article-title {
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-top: 20px;
+    }
+  }
+}

@@ -28,6 +28,7 @@ const Header = () => {
 
   const inputRef = useRef<HTMLDivElement>(null);
   const hambergerRef = useRef<HTMLButtonElement>(null);
+  const inputTextRef = useRef<HTMLInputElement>(null);
 
   // ZUSTAND
   const addSearchHistory = useSearchHistory((state) => state.addSearchHistory);
@@ -44,6 +45,7 @@ const Header = () => {
         setSerchPlaceholder("");
       }
     };
+
     window.addEventListener("mousedown", handleClick);
     return () => window.removeEventListener("mousedown", handleClick);
   }, [inputRef]);
@@ -66,8 +68,8 @@ const Header = () => {
     setIsSearchFocus(true);
   };
 
-  const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInput(e.target.value);
+  const handleSearchInputChange = () => {
+    setInput(inputTextRef.current?.value!);
   };
 
   const handleSearch = (e: React.MouseEvent<SVGSVGElement, MouseEvent>) => {
@@ -83,7 +85,10 @@ const Header = () => {
 
   const gotoSearchPage = () => {
     if (autoSave) addSearchHistory(input);
-    router.push(`https://search.naver.com/search.naver?query=${input}`);
+    router.push(
+      `https://search.naver.com/search.naver?query=${inputTextRef.current
+        ?.value!}`
+    );
     setInput("");
   };
 
@@ -192,6 +197,7 @@ const Header = () => {
             className={cx("search-area-input")}
             placeholder={searchPlaceholder}
             value={input}
+            ref={inputTextRef}
             onFocus={onFocusHandler}
             onChange={handleSearchInputChange}
             onKeyDown={handlePressEnter}

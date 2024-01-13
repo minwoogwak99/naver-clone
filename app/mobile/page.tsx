@@ -7,18 +7,19 @@ import "swiper/css";
 
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import HomeMobile from "@/components/mobile/homeComp/HomeMobile";
 
 const MobileVersion = () => {
   return (
-    <>
-      <Swiper className={cx("test")}>
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 1</SwiperSlide>
-      </Swiper>
-    </>
+    <Swiper className={cx("swiper-wrap")}>
+      <SwiperSlide>
+        <HomeMobile />
+      </SwiperSlide>
+      <SwiperSlide>Slide 1</SwiperSlide>
+      <SwiperSlide>Slide 1</SwiperSlide>
+      <SwiperSlide>Slide 1</SwiperSlide>
+      <SwiperSlide>Slide 1</SwiperSlide>
+    </Swiper>
   );
 };
 
