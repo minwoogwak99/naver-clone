@@ -16,17 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <body
-        style={{
-          display: "flex",
-          maxWidth: "90%",
-          margin: "0 auto",
-          minWidth: "1200px", // Set a minimum width for the body
-        }}
-        className={inter.className}
-      >
-        {children}
-      </body>
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }

@@ -9,7 +9,13 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div style={{ width: "100%", position: "relative" }}>
+    <div
+      style={{
+        maxWidth: "90%",
+        margin: "0 auto",
+        minWidth: "1200px",
+      }}
+    >
       <Header />
       <Main />
       <Footer />
