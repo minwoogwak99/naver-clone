@@ -12,13 +12,13 @@ import HomeMobile from "@/components/mobile/homeComp/HomeMobile";
 const MobileVersion = () => {
   return (
     <Swiper className={cx("swiper-wrap")}>
+      <SwiperSlide>쇼핑 2</SwiperSlide>
+      <SwiperSlide>쇼핑 1</SwiperSlide>
       <SwiperSlide>
         <HomeMobile />
       </SwiperSlide>
-      <SwiperSlide>Slide 1</SwiperSlide>
-      <SwiperSlide>Slide 1</SwiperSlide>
-      <SwiperSlide>Slide 1</SwiperSlide>
-      <SwiperSlide>Slide 1</SwiperSlide>
+      <SwiperSlide>뉴스 1</SwiperSlide>
+      <SwiperSlide>스포츠</SwiperSlide>
     </Swiper>
   );
 };

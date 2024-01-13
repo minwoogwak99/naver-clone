@@ -85,6 +85,7 @@ const HeaderMobile = () => {
             type="text"
             className={cx("search-area-input")}
             placeholder="검색어를 입력하세요"
+            value={""}
           />
           <SlMagnifier className={cx("search-button")} onClick={handleSearch} />
         </div>
