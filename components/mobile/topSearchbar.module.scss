@@ -2,8 +2,9 @@
   background-color: #fff;
   position: sticky;
   top: 0;
-  min-height: 40px;
+  min-height: 55px;
   width: 100%;
+
   .search-area {
     border: 1px solid #e5e5e5;
     height: 100%;
@@ -25,5 +26,17 @@
       color: rgb(89, 196, 102);
       font-size: 20px;
     }
+  }
+
+  .services-wrap {
+    background-color: rgb(4, 205, 118);
+    height: 55px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    padding-left: 20px;
   }
 }

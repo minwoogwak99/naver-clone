@@ -7,6 +7,7 @@ import { SlMagnifier } from "react-icons/sl";
 import naverLogo from "@/assets/naver_logo.png";
 import Image from "next/image";
 import SearchFull from "./SearchFull";
+import { services } from "@/consts/servicesLink";
 
 const TopSearchbar = () => {
   const [isSearchFull, setIsSearchFull] = useState(false);
@@ -26,6 +27,11 @@ const TopSearchbar = () => {
           />
           <span className={cx("search-area-input")}>검색어를 입력해주세요</span>
           <SlMagnifier className={cx("search-button")} />
+        </div>
+        <div className={cx("services-wrap")}>
+          {Object.keys(services).map((service, i) => {
+            return <div key={i}>{service}</div>;
+          })}
         </div>
       </div>
       {isSearchFull && <SearchFull setIsShowSearchFull={setIsSearchFull} />}
