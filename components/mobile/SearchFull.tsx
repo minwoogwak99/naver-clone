@@ -34,10 +34,6 @@ const SearchFull = ({ setIsShowSearchFull }: Props) => {
     if (searchHistories.length > 0) setIsHistoryEmpty(false);
   }, [searchHistories]);
 
-  useEffect(() => {
-    if (inputRef.current && inputRef.keyCode === 13) gotoSearchPage();
-  }, [inputRef]);
-
   const handleSearchInputChange = () => {
     setInput(inputRef.current?.value!);
   };

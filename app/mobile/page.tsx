@@ -11,7 +11,7 @@ import HomeMobile from "@/components/mobile/homeComp/HomeMobile";
 
 const MobileVersion = () => {
   return (
-    <Swiper className={cx("swiper-wrap")}>
+    <Swiper className={cx("swiper-wrap")} initialSlide={2} loop>
       <SwiperSlide>쇼핑 2</SwiperSlide>
       <SwiperSlide>쇼핑 1</SwiperSlide>
       <SwiperSlide>
