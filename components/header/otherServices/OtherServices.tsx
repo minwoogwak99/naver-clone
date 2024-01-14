@@ -5,6 +5,7 @@ const cx = classNames.bind(styles);
 import React from "react";
 import { services } from "@/consts/servicesLink";
 import { useRouter } from "next/navigation";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 const OtherServices = () => {
   const router = useRouter();
@@ -15,9 +16,10 @@ const OtherServices = () => {
   };
   return (
     <section className={cx("services-wrap")}>
-      {Object.keys(services).map((item) => {
+      {Object.keys(services).map((item, idx) => {
         return (
           <div
+            key={idx}
             className={cx("service-item")}
             onClick={() => {
               handleServiceClick(item);

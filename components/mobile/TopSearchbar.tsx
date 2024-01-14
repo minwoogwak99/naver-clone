@@ -8,6 +8,7 @@ import naverLogo from "@/assets/naver_logo.png";
 import Image from "next/image";
 import SearchFull from "./SearchFull";
 import { services } from "@/consts/servicesLink";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 const TopSearchbar = () => {
   const [isSearchFull, setIsSearchFull] = useState(false);
@@ -28,7 +29,21 @@ const TopSearchbar = () => {
           <span className={cx("search-area-input")}>검색어를 입력해주세요</span>
           <SlMagnifier className={cx("search-button")} />
         </div>
-        <div className={cx("services-wrap")}>
+        <Swiper
+          spaceBetween={18}
+          slidesPerView={7}
+          nested={true}
+          className={cx("services-wrap")}
+        >
+          {Object.keys(services).map((item, i) => {
+            return (
+              <SwiperSlide className={cx("services-slide-wrap")}>
+                <div key={i}>{item}</div>
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+        {/* <div className={cx("services-wrap")}>
           {Object.keys(services).map((service, i) => {
             return (
               <div key={i} className={cx("service-item")}>
@@ -36,7 +51,7 @@ const TopSearchbar = () => {
               </div>
             );
           })}
-        </div>
+        </div> */}
       </div>
       {isSearchFull && <SearchFull setIsShowSearchFull={setIsSearchFull} />}
     </>
