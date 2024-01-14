@@ -3,6 +3,7 @@
 import SearchFull from "@/components/mobile/SearchFull";
 import TopSearchbar from "@/components/mobile/TopSearchbar";
 import { useModal, useSwiper } from "@/util/zustand/store";
+import { useRouter } from "next/navigation";
 import { use, useEffect, useMemo, useState } from "react";
 
 export default function MobileLayout({
@@ -10,6 +11,14 @@ export default function MobileLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const router = useRouter();
+
+  const isMobile = window.matchMedia("(max-width: 1200px)").matches;
+
+  if (!isMobile) {
+    router.push("/");
+  }
+
   //zustand
   const SearchModal = useModal((state) => state.searchModal);
   const swiperCurrentIndex = useSwiper((state) => state.swiperCurrentIdx);

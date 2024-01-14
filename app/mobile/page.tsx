@@ -8,7 +8,7 @@ import "swiper/css";
 import React, { useEffect, useRef } from "react";
 import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 import HomeMobile from "@/components/mobile/homeComp/HomeMobile";
-import { useModal, useSwiper } from "@/util/zustand/store";
+import { useSwiper } from "@/util/zustand/store";
 import { searchServices } from "@/consts/serchBarServices";
 
 const HOMEINDEX = 4;

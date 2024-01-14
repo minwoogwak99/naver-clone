@@ -38,6 +38,12 @@ const Header = () => {
   const searchHistories = useSearchHistory((state) => state.searchHistories);
   const autoSave = useSearchHistory((state) => state.autoSave);
 
+  let isMobile = window.matchMedia("(max-width: 1200px)").matches;
+
+  if (isMobile) {
+    router.push("/mobile");
+  }
+
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
       if (inputRef.current && !inputRef.current.contains(e.target as Node)) {
