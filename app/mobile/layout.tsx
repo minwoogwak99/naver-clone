@@ -4,7 +4,7 @@ import SearchFull from "@/components/mobile/SearchFull";
 import TopSearchbar from "@/components/mobile/TopSearchbar";
 import { useModal, useSwiper } from "@/util/zustand/store";
 import { useRouter } from "next/navigation";
-import { use, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 export default function MobileLayout({
   children,
@@ -13,10 +13,12 @@ export default function MobileLayout({
 }) {
   const router = useRouter();
 
-  const isMobile = window.matchMedia("(max-width: 1200px)").matches;
+  if (typeof window !== "undefined") {
+    const isMobile = window.matchMedia("(max-width: 1200px)").matches;
 
-  if (!isMobile) {
-    router.push("/");
+    if (!isMobile) {
+      router.push("/");
+    }
   }
 
   //zustand

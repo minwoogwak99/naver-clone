@@ -5,7 +5,6 @@ const cx = classNames.bind(styles);
 import React from "react";
 import { services } from "@/consts/servicesLink";
 import { useRouter } from "next/navigation";
-import { Swiper, SwiperSlide } from "swiper/react";
 
 const OtherServices = () => {
   const router = useRouter();
