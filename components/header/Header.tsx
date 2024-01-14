@@ -38,10 +38,12 @@ const Header = () => {
   const searchHistories = useSearchHistory((state) => state.searchHistories);
   const autoSave = useSearchHistory((state) => state.autoSave);
 
-  let isMobile = window.matchMedia("(max-width: 1200px)").matches;
+  if (typeof window !== "undefined") {
+    let isMobile = window.matchMedia("(max-width: 1200px)").matches;
 
-  if (isMobile) {
-    router.push("/mobile");
+    if (isMobile) {
+      router.push("/mobile");
+    }
   }
 
   useEffect(() => {
