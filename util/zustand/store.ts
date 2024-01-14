@@ -1,6 +1,18 @@
 import { create } from "zustand";
-import { HistoryAction, HistoryState, ModalState, ModalAction } from "./type";
+import {
+  HistoryAction,
+  HistoryState,
+  ModalState,
+  ModalAction,
+  SwiperState,
+  SwiperAction,
+} from "./type";
 import { createJSONStorage, persist } from "zustand/middleware";
+
+export const useSwiper = create<SwiperState & SwiperAction>()((set) => ({
+  swiperCurrentIdx: 4,
+  setSwierCurrentIdx: (idx) => set(() => ({ swiperCurrentIdx: idx })),
+}));
 
 export const useModal = create<ModalState & ModalAction>()((set) => ({
   searchModal: false,

@@ -27,11 +27,8 @@ const HeaderMobile = () => {
         <MdOutlineMessage />
         <LuBadgeInfo />
       </div>
-      <div
-        className={cx("search-area-wrap")}
-        onClick={() => setSearchModal(true)}
-      >
-        <div className={cx("search-area")}>
+      <div className={cx("search-area-wrap")}>
+        <div className={cx("search-area")} onClick={() => setSearchModal(true)}>
           <div className={cx("search-area-img")}>
             <Image src={naverLogo} alt="naver logo" width={25} height={25} />
           </div>

@@ -8,17 +8,34 @@ import "swiper/css";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import HomeMobile from "@/components/mobile/homeComp/HomeMobile";
+import { useModal, useSwiper } from "@/util/zustand/store";
+import { searchServices } from "@/consts/serchBarServices";
+
+export const HOMEINDEX = 4;
 
 const MobileVersion = () => {
+  const setSwiperCurrentIndex = useSwiper((state) => state.setSwierCurrentIdx);
+
   return (
-    <Swiper className={cx("swiper-wrap")} initialSlide={2} loop>
-      <SwiperSlide>쇼핑 2</SwiperSlide>
-      <SwiperSlide>쇼핑 1</SwiperSlide>
-      <SwiperSlide>
-        <HomeMobile />
-      </SwiperSlide>
-      <SwiperSlide>뉴스 1</SwiperSlide>
-      <SwiperSlide>스포츠</SwiperSlide>
+    <Swiper
+      className={cx("swiper-wrap")}
+      initialSlide={HOMEINDEX}
+      loop
+      onRealIndexChange={(i) => setSwiperCurrentIndex(i.activeIndex)}
+    >
+      {searchServices.map((service, i) => (
+        <SwiperSlide
+          key={i}
+          style={{
+            height: "100vh",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          {i === HOMEINDEX ? <HomeMobile /> : service}
+        </SwiperSlide>
+      ))}
     </Swiper>
   );
 };

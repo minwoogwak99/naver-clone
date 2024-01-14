@@ -7,6 +7,7 @@ import { SlMagnifier } from "react-icons/sl";
 import naverLogo from "@/assets/naver_logo.png";
 import Image from "next/image";
 import { services } from "@/consts/servicesLink";
+import { searchServices } from "@/consts/serchBarServices";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useModal } from "@/util/zustand/store";
 
@@ -29,14 +30,15 @@ const TopSearchbar = () => {
         </div>
         <Swiper
           spaceBetween={18}
-          slidesPerView={7}
+          slidesPerView={"auto"}
           nested={true}
           className={cx("services-wrap")}
+          freeMode={true}
         >
-          {Object.keys(services).map((item, i) => {
+          {searchServices.map((item, i) => {
             return (
               <SwiperSlide key={i} className={cx("services-slide-wrap")}>
-                <div>{item}</div>
+                <span>{item}</span>
               </SwiperSlide>
             );
           })}

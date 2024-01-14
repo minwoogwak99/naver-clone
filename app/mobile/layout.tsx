@@ -2,8 +2,8 @@
 
 import SearchFull from "@/components/mobile/SearchFull";
 import TopSearchbar from "@/components/mobile/TopSearchbar";
-import { useModal } from "@/util/zustand/store";
-import { use, useEffect, useState } from "react";
+import { useModal, useSwiper } from "@/util/zustand/store";
+import { use, useEffect, useMemo, useState } from "react";
 
 export default function MobileLayout({
   children,
@@ -12,22 +12,29 @@ export default function MobileLayout({
 }) {
   //zustand
   const SearchModal = useModal((state) => state.searchModal);
-  const setSearchModal = useModal((state) => state.setSearchModal);
+  const swiperCurrentIndex = useSwiper((state) => state.swiperCurrentIdx);
 
   const [scrollY, setScrollY] = useState(0);
-  function handleScroll(e: any) {
-    setScrollY(e.target.scrollTop);
-  }
+
+  const isOpenTopSearchBar = useMemo(() => {
+    return (
+      (scrollY > 300 && swiperCurrentIndex === 4) || swiperCurrentIndex !== 4
+    );
+  }, [scrollY, swiperCurrentIndex]);
 
   useEffect(() => {
     document.body.addEventListener("scroll", handleScroll, true);
     return () => document.body.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleScroll = (e: any) => {
+    setScrollY(e.target.scrollTop);
+  };
+
   return (
     <>
       {SearchModal && <SearchFull />}
-      {scrollY > 300 && <TopSearchbar />}
+      {isOpenTopSearchBar && <TopSearchbar />}
       {children}
     </>
   );
