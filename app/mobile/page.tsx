@@ -11,7 +11,7 @@ import HomeMobile from "@/components/mobile/homeComp/HomeMobile";
 import { useModal, useSwiper } from "@/util/zustand/store";
 import { searchServices } from "@/consts/serchBarServices";
 
-export const HOMEINDEX = 4;
+const HOMEINDEX = 4;
 
 const MobileVersion = () => {
   const slideRef = useRef<SwiperRef>(null);
