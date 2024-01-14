@@ -2,19 +2,27 @@ import classNames from "classnames/bind";
 import style from "./topSearchbar.module.scss";
 const cx = classNames.bind(style);
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { SlMagnifier } from "react-icons/sl";
 import naverLogo from "@/assets/naver_logo.png";
 import Image from "next/image";
 import { services } from "@/consts/servicesLink";
 import { searchServices } from "@/consts/serchBarServices";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 import { useModal, useSwiper } from "@/util/zustand/store";
 
 const TopSearchbar = () => {
+  const searchbarCurrIdxRef = useRef<SwiperRef>(null);
+
   const setSearchModal = useModal((state) => state.setSearchModal);
   const currentSwiperIndex = useSwiper((state) => state.swiperCurrentIdx);
   const setCurrentIdx = useSwiper((state) => state.setSwierCurrentIdx);
+
+  useEffect(() => {
+    if (searchbarCurrIdxRef.current === null) return;
+    searchbarCurrIdxRef.current.swiper.slideTo(currentSwiperIndex);
+  }, [currentSwiperIndex]);
+
   return (
     <div>
       <div className={cx("top-search-wrap")}>
@@ -35,6 +43,8 @@ const TopSearchbar = () => {
           nested={true}
           className={cx("services-wrap")}
           freeMode={true}
+          centeredSlides={true}
+          ref={searchbarCurrIdxRef}
         >
           {searchServices.map((item, i) => {
             return (
