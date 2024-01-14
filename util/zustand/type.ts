@@ -9,3 +9,11 @@ export type HistoryAction = {
   deleteOneHistory: (idx: number) => void;
   setAutoSave: (bool: boolean) => void;
 };
+
+export type ModalState = {
+  searchModal: boolean;
+};
+
+export type ModalAction = {
+  setSearchModal: (bool: boolean) => void;
+};

@@ -27,7 +27,7 @@ const HomeMobile = () => {
 
   return (
     <div className={cx("home-wrap")} ref={homeWrapRef}>
-      {scrollY > 300 && <TopSearchbar />}
+      {/* {scrollY > 300 && <TopSearchbar />} */}
       <section>
         <HeaderMobile />
       </section>

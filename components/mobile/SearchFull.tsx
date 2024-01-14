@@ -3,18 +3,14 @@ import styles from "./searchFull.module.scss";
 const cx = classNames.bind(styles);
 
 import React, { useEffect, useRef, useState } from "react";
-import { useSearchHistory } from "@/util/zustand/store";
+import { useModal, useSearchHistory } from "@/util/zustand/store";
 import { SlMagnifier } from "react-icons/sl";
 import { useRouter } from "next/navigation";
 import { IoMdArrowBack, IoMdClose } from "react-icons/io";
 
-interface Props {
-  setIsShowSearchFull: React.Dispatch<React.SetStateAction<boolean>>;
-}
-const SearchFull = ({ setIsShowSearchFull }: Props) => {
+const SearchFull = () => {
   const router = useRouter();
 
-  const [isSearchFocus, setIsSearchFocus] = useState(false);
   const [input, setInput] = useState("");
   const [isHistoryEmpty, setIsHistoryEmpty] = useState(false);
   const [isComposing, setComposing] = useState(false);
@@ -28,7 +24,7 @@ const SearchFull = ({ setIsShowSearchFull }: Props) => {
   const setAutoSave = useSearchHistory((state) => state.setAutoSave);
   const searchHistories = useSearchHistory((state) => state.searchHistories);
   const autoSave = useSearchHistory((state) => state.autoSave);
-
+  const setSearchModal = useModal((state) => state.setSearchModal);
   useEffect(() => {
     if (searchHistories.length === 0) setIsHistoryEmpty(true);
     if (searchHistories.length > 0) setIsHistoryEmpty(false);
@@ -52,7 +48,6 @@ const SearchFull = ({ setIsShowSearchFull }: Props) => {
   const handleAutoSave = () => {
     if (autoSave && confirm("최근검색어 저장 기능을 사용 중지하시겠습니까?")) {
       setAutoSave(false);
-      // deleteAllHistory();
     } else if (
       !autoSave &&
       confirm("최근검색어 저장 기능을 사용 하시겠습니까?")
@@ -74,7 +69,7 @@ const SearchFull = ({ setIsShowSearchFull }: Props) => {
         <button
           className={cx("search-close-button")}
           onClick={() => {
-            setIsShowSearchFull(false);
+            setSearchModal(false);
           }}
         >
           <IoMdArrowBack
@@ -170,7 +165,7 @@ const SearchFull = ({ setIsShowSearchFull }: Props) => {
           <span
             style={{ cursor: "pointer" }}
             onClick={() => {
-              setIsShowSearchFull(false);
+              setSearchModal(false);
             }}
           >
             닫기

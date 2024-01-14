@@ -1,6 +1,11 @@
 import { create } from "zustand";
-import { HistoryAction, HistoryState } from "./type";
+import { HistoryAction, HistoryState, ModalState, ModalAction } from "./type";
 import { createJSONStorage, persist } from "zustand/middleware";
+
+export const useModal = create<ModalState & ModalAction>()((set) => ({
+  searchModal: false,
+  setSearchModal: (bool) => set(() => ({ searchModal: bool })),
+}));
 
 export const useSearchHistory = create<HistoryState & HistoryAction>()(
   persist(
