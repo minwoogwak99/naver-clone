@@ -9,11 +9,12 @@ import Image from "next/image";
 import { services } from "@/consts/servicesLink";
 import { searchServices } from "@/consts/serchBarServices";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useModal } from "@/util/zustand/store";
+import { useModal, useSwiper } from "@/util/zustand/store";
 
 const TopSearchbar = () => {
   const setSearchModal = useModal((state) => state.setSearchModal);
-
+  const currentSwiperIndex = useSwiper((state) => state.swiperCurrentIdx);
+  const setCurrentIdx = useSwiper((state) => state.setSwierCurrentIdx);
   return (
     <div>
       <div className={cx("top-search-wrap")}>
@@ -37,8 +38,15 @@ const TopSearchbar = () => {
         >
           {searchServices.map((item, i) => {
             return (
-              <SwiperSlide key={i} className={cx("services-slide-wrap")}>
+              <SwiperSlide
+                key={i}
+                className={cx("services-slide-wrap")}
+                onClick={() => setCurrentIdx(i)}
+              >
                 <span>{item}</span>
+                <span
+                  className={cx({ indicator: currentSwiperIndex === i })}
+                ></span>
               </SwiperSlide>
             );
           })}

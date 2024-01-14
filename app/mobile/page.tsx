@@ -5,8 +5,8 @@ import style from "./mobile.module.scss";
 const cx = classNames.bind(style);
 import "swiper/css";
 
-import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
+import React, { useEffect, useRef } from "react";
+import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 import HomeMobile from "@/components/mobile/homeComp/HomeMobile";
 import { useModal, useSwiper } from "@/util/zustand/store";
 import { searchServices } from "@/consts/serchBarServices";
@@ -14,14 +14,22 @@ import { searchServices } from "@/consts/serchBarServices";
 export const HOMEINDEX = 4;
 
 const MobileVersion = () => {
+  const slideRef = useRef<SwiperRef>(null);
+
   const setSwiperCurrentIndex = useSwiper((state) => state.setSwierCurrentIdx);
+  const swiperCurrentIdx = useSwiper((state) => state.swiperCurrentIdx);
+
+  useEffect(() => {
+    if (slideRef.current === null) return;
+    slideRef.current.swiper.slideTo(swiperCurrentIdx);
+  }, [swiperCurrentIdx]);
 
   return (
     <Swiper
       className={cx("swiper-wrap")}
       initialSlide={HOMEINDEX}
-      loop
       onRealIndexChange={(i) => setSwiperCurrentIndex(i.activeIndex)}
+      ref={slideRef}
     >
       {searchServices.map((service, i) => (
         <SwiperSlide

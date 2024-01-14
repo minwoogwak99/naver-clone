@@ -36,11 +36,22 @@
     padding-left: 20px;
     .services-slide-wrap {
       display: flex;
+      flex-direction: column;
       align-items: center;
+      justify-content: center;
       font-size: 18px;
       font-weight: 600;
       color: #fff;
       width: auto;
+      position: relative;
+
+      .indicator {
+        width: 100%;
+        height: 3px;
+        background-color: #fff;
+        position: absolute;
+        bottom: 1px;
+      }
     }
   }
 }
