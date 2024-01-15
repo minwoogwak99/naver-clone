@@ -17,7 +17,6 @@ import { useSearchHistory } from "@/util/zustand/store";
 import { IoMdClose } from "react-icons/io";
 import OtherServices from "./otherServices/OtherServices";
 import Link from "next/link";
-import HamburgerModal from "./HamburgerModal";
 
 const Header = () => {
   const router = useRouter();
@@ -117,7 +116,7 @@ const Header = () => {
   };
 
   const handleHamburger = () => {
-    setIsHanburgerOpen((prev) => !prev);
+    setIsHanburgerOpen(true);
   };
 
   return (
@@ -129,7 +128,36 @@ const Header = () => {
           ref={hambergerRef}
         >
           <CiMenuBurger />
-          {isHanburgerOpen && <HamburgerModal />}
+          {isHanburgerOpen && (
+            <div className={cx("hambuger-modal")}>
+              <div
+                style={{
+                  position: "sticky",
+                  top: 0,
+                  backgroundColor: "#fff",
+                  fontSize: "25px",
+                  textAlign: "start",
+                  padding: "20px",
+                  borderBottom: "1px solid rgba(0,0,0,0.1)",
+                }}
+              >
+                바로가기
+              </div>
+              <div className={cx("hamburger-content-wrap")}>
+                <div>section2</div>
+                <div>section3</div>
+                <div>section3</div>
+                <div>section3</div>
+                <div>section3</div>
+                <div>section3</div>
+                <div>section3</div>
+                <div>section3</div>
+                <div>section3</div>
+                <div>section3</div>
+                <div>section3</div>
+              </div>
+            </div>
+          )}
         </button>
         <button className={cx("pay-button")}>
           <FaAmazonPay />
