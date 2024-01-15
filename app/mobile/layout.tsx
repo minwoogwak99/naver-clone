@@ -1,7 +1,7 @@
 "use client";
 
-import SearchFull from "@/components/mobile/SearchFull";
-import TopSearchbar from "@/components/mobile/TopSearchbar";
+import SearchFull from "@/components/mobile/searchFull/SearchFull";
+import TopSearchbar from "@/components/mobile/topSearchBar/TopSearchbar";
 import { useModal, useSwiper } from "@/util/zustand/store";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";

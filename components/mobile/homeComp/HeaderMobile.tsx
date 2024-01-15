@@ -12,7 +12,7 @@ import Image from "next/image";
 import { useModal, useSearchHistory } from "@/util/zustand/store";
 import { SlMagnifier } from "react-icons/sl";
 import { useRouter } from "next/navigation";
-import SearchFull from "./SearchFull";
+import SearchFull from "../searchFull/SearchFull";
 
 const HeaderMobile = () => {
   // ZUSTAND

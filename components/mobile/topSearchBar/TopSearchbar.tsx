@@ -6,7 +6,6 @@ import React, { useEffect, useRef } from "react";
 import { SlMagnifier } from "react-icons/sl";
 import naverLogo from "@/assets/naver_logo.png";
 import Image from "next/image";
-import { services } from "@/consts/servicesLink";
 import { searchServices } from "@/consts/serchBarServices";
 import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 import { useModal, useSwiper } from "@/util/zustand/store";

@@ -3,8 +3,8 @@ import style from "./homeMobile.module.scss";
 const cx = classNames.bind(style);
 
 import React, { useEffect, useRef, useState } from "react";
-import HeaderMobile from "../HeaderMobile";
-import ArticleMobile from "../articleMobile";
+import HeaderMobile from "./HeaderMobile";
+import ArticleMobile from "./articleMobile";
 
 const HomeMobile = () => {
   return (
