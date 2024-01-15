@@ -24,13 +24,13 @@ export default function MobileLayout({
     );
   }, [scrollY, swiperCurrentIndex]);
 
-  if (window !== undefined) {
+  if (typeof window !== undefined) {
     var isTouchDevice = function () {
       return "ontouchstart" in window || "onmsgesturechange" in window;
     };
     var isDesktop = !isTouchDevice() ? true : false;
 
-    isDesktop && router.push("/");
+    isDesktop && router.push("/mobile");
   }
 
   useEffect(() => {

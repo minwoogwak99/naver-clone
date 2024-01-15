@@ -38,16 +38,14 @@ const Header = () => {
   const searchHistories = useSearchHistory((state) => state.searchHistories);
   const autoSave = useSearchHistory((state) => state.autoSave);
 
-  useEffect(() => {
-    if (window !== undefined) {
-      var isTouchDevice = function () {
-        return "ontouchstart" in window || "onmsgesturechange" in window;
-      };
-      var isDesktop = !isTouchDevice() ? true : false;
+  if (typeof window !== undefined) {
+    var isTouchDevice = function () {
+      return "ontouchstart" in window || "onmsgesturechange" in window;
+    };
+    var isDesktop = !isTouchDevice() ? true : false;
 
-      !isDesktop && router.push("/mobile");
-    }
-  }, []);
+    !isDesktop && router.push("/mobile");
+  }
 
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
