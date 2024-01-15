@@ -39,12 +39,13 @@ const Header = () => {
   const searchHistories = useSearchHistory((state) => state.searchHistories);
   const autoSave = useSearchHistory((state) => state.autoSave);
 
-  if (typeof window !== "undefined") {
-    let isMobile = window.matchMedia("(max-width: 1200px)").matches;
+  if (window !== undefined) {
+    var isTouchDevice = function () {
+      return "ontouchstart" in window || "onmsgesturechange" in window;
+    };
+    var isDesktop = !isTouchDevice() ? true : false;
 
-    if (isMobile) {
-      router.push("/mobile");
-    }
+    !isDesktop && router.push("/mobile");
   }
 
   useEffect(() => {

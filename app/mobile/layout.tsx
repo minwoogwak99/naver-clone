@@ -12,15 +12,6 @@ export default function MobileLayout({
   children: React.ReactNode;
 }) {
   const router = useRouter();
-
-  if (typeof window !== "undefined") {
-    const isMobile = window.matchMedia("(max-width: 1200px)").matches;
-
-    if (!isMobile) {
-      router.push("/");
-    }
-  }
-
   //zustand
   const SearchModal = useModal((state) => state.searchModal);
   const swiperCurrentIndex = useSwiper((state) => state.swiperCurrentIdx);
@@ -32,6 +23,15 @@ export default function MobileLayout({
       (scrollY > 300 && swiperCurrentIndex === 4) || swiperCurrentIndex !== 4
     );
   }, [scrollY, swiperCurrentIndex]);
+
+  if (window !== undefined) {
+    var isTouchDevice = function () {
+      return "ontouchstart" in window || "onmsgesturechange" in window;
+    };
+    var isDesktop = !isTouchDevice() ? true : false;
+
+    isDesktop && router.push("/");
+  }
 
   useEffect(() => {
     document.body.addEventListener("scroll", handleScroll, true);
