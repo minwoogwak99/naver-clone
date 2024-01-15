@@ -24,15 +24,6 @@ export default function MobileLayout({
     );
   }, [scrollY, swiperCurrentIndex]);
 
-  if (typeof window !== undefined) {
-    var isTouchDevice = function () {
-      return "ontouchstart" in window || "onmsgesturechange" in window;
-    };
-    var isDesktop = !isTouchDevice() ? true : false;
-
-    isDesktop && router.push("/mobile");
-  }
-
   useEffect(() => {
     document.body.addEventListener("scroll", handleScroll, true);
     return () => document.body.removeEventListener("scroll", handleScroll);
