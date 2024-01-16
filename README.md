@@ -1,7 +1,7 @@
 Naver clone 
 
 - PC version
-- Mobile Version(currently working on this)
+- Mobile Version
 - dark mode(Todo #1)
   
   
